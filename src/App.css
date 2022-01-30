@@ -93,3 +93,18 @@ form {
   color: darkblue;
   background-color: rgb(144, 180, 247);
 }
+
+.error-button {
+  border: rgb(6, 37, 99);
+  border-radius: 20px;
+  padding: 10px;
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgb(79, 134, 243);
+  margin: 20px;
+}
+
+.error-button:hover {
+  background-color: cornflowerblue;
+}
