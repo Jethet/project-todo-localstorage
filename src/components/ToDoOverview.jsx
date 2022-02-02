@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const ToDoOverview = () => {
   const [todoList, setTodoList] = useState([]);
+  const navigate = useNavigate();
 
   const getTodoStorage = () => {
     let cards = [];
@@ -19,9 +21,6 @@ const ToDoOverview = () => {
     setTodoList(getTodoStorage());
   }, []);
 
-  // useEffect(() => {
-  //   console.log(todoList);
-  // }, [todoList]);
 
   return (
     <div className="overview">
@@ -40,6 +39,10 @@ const ToDoOverview = () => {
             </div>
           );
         })}
+      </div>
+      <div className="button-set">
+        <button className="nav-button" onClick={() => navigate("/todo")}>Create new To Do</button>
+        <button className="nav-button" onClick={() => navigate("/")}>Back to homepage</button>
       </div>
     </div>
   );
