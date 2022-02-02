@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const ToDoOverview = () => {
   const [todoList, setTodoList] = useState([]);
@@ -6,7 +6,7 @@ const ToDoOverview = () => {
   const getTodoStorage = () => {
     let cards = [];
     let keys = Object.keys(localStorage);
-    
+
     let i = keys.length;
 
     while (i--) {
@@ -33,8 +33,10 @@ const ToDoOverview = () => {
               <p>Title: {card.title}</p>
               <p>Description: {card.description}</p>
               <p>Tags: {card.tag}</p>
-              <button>Edit</button>
-              <button>Delete</button>
+              <div className="card-buttons">
+                <button className="edit-button">Update</button>
+                <button className="delete-button">Delete</button>
+              </div>
             </div>
           );
         })}
