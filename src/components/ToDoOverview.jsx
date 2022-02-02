@@ -25,7 +25,7 @@ const ToDoOverview = () => {
 
   return (
     <div className="overview">
-      <h1>Get all To Do cards in the overview</h1>
+      <h1 className="overview-header">Overview of all To Do cards</h1>
       <div className="card-list">
         {todoList.map((card, index) => {
           return (
@@ -33,6 +33,8 @@ const ToDoOverview = () => {
               <p>Title: {card.title}</p>
               <p>Description: {card.description}</p>
               <p>Tags: {card.tag}</p>
+              <button>Edit</button>
+              <button>Delete</button>
             </div>
           );
         })}

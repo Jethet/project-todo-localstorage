@@ -40,6 +40,10 @@ html {
   align-items: center;
 }
 
+.overview-header {
+  display: flex;
+}
+
 .card-list {
   display: flex;
   flex-direction: column;
@@ -48,6 +52,8 @@ html {
 
 .overview-card {
   color: rgb(48, 47, 47);
+  border: 1px solid cornflowerblue;
+  width: 100%;
 }
 
 img {
