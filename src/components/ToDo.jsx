@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const ToDo = () => {
   const [card, setCard] = useState({ title: "", description: "", tag: "" });
@@ -16,16 +16,16 @@ const ToDo = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();    
-    let key = new Date().toLocaleString("nl")
-    
+    e.preventDefault();
+    let key = new Date().toLocaleString("nl");
+
     localStorage.setItem(JSON.stringify(key), JSON.stringify(card));
-    setTimeout(resetCard, 2000)
+    setTimeout(resetCard, 2000);
   };
 
   const resetCard = () => {
-    setCard({ title: "", description: "", tag: "" })
-  }
+    setCard({ title: "", description: "", tag: "" });
+  };
 
   return (
     <div className="todo-card">
@@ -55,10 +55,17 @@ const ToDo = () => {
           placeholder="Tag(s)"
         />
         <button id="submit-btn" type="submit" onClick={handleSubmit}>
-          Submit
+          Submit To Do
         </button>
-        <button className="nav-button" onClick={() => navigate("/todooverview")}>To Do Overview</button>
-        </form>
+        <div className="button-set">
+          <button className="nav-button" onClick={() => navigate("/todooverview")}>
+            To Do Overview
+          </button>
+          <button className="nav-button" onClick={() => navigate("/")}>
+            Back to homepage
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
