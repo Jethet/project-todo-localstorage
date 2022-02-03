@@ -57,14 +57,12 @@ const ToDo = () => {
         <button id="submit-btn" type="submit" onClick={handleSubmit}>
           Submit To Do
         </button>
-        <div className="button-set">
           <button className="nav-button" onClick={() => navigate("/todooverview")}>
             To Do Overview
           </button>
           <button className="nav-button" onClick={() => navigate("/")}>
             Back to homepage
           </button>
-        </div>
       </form>
     </div>
   );

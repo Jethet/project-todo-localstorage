@@ -106,13 +106,22 @@ form {
   color: darkblue;
 }
 
+#title, #tag {
+  height: 30px;
+}
+
+#description {
+  height: 75px;
+}
+
 #submit-btn {
   color: white;
   font-weight: bolder;
   background-color: cornflowerblue;
   border: 1px solid cornflowerblue;
   border-radius: 20px;
-  margin: 15px;
+  margin-top: 25px;
+  margin-bottom: 15px;
   padding: 10px;
   cursor: pointer;
 }
