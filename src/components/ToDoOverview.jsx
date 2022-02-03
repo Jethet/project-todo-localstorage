@@ -33,8 +33,8 @@ const ToDoOverview = () => {
               <p>Description: {card.description}</p>
               <p>Tags: {card.tag}</p>
               <div className="card-buttons">
-                <button className="edit-button">Update</button>
-                <button className="delete-button">Delete</button>
+                <button className="edit-button" onClick={() => navigate("/todoupdate")}>Update</button>
+                <button className="delete-button" onClick={() => navigate("/tododelete")}>Delete</button>
               </div>
             </div>
           );
