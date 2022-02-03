@@ -35,6 +35,54 @@ html {
   background-color: rgb(144, 180, 247);
 }
 
+/* TODO PAGE */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+#title,
+#description,
+#tag {
+  display: flex;
+  width: 100%;
+  border: 2px solid cornflowerblue;
+  color: darkblue;
+}
+
+#title, #tag {
+  height: 30px;
+}
+
+#description {
+  height: 75px;
+}
+
+#submit-btn {
+  color: white;
+  font-weight: bolder;
+  background-color: cornflowerblue;
+  border: 1px solid cornflowerblue;
+  border-radius: 20px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  background-color: cornflowerblue;
+}
+
+/* TODO OVERVIEW PAGE */
 .overview {
   display: flex;
   flex-direction: column;
@@ -80,54 +128,18 @@ html {
   background-color: rgb(144, 180, 247);
 }
 
-/* img {
-  width: 300px;
-} */
-
-form {
+/* TODO UPDATE PAGE */
+.update-page {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.todo-card {
+/* TODO DELETE PAGE */
+.delete-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
-}
-
-#title,
-#description,
-#tag {
-  display: flex;
-  width: 100%;
-  border: 2px solid cornflowerblue;
-  color: darkblue;
-}
-
-#title, #tag {
-  height: 30px;
-}
-
-#description {
-  height: 75px;
-}
-
-#submit-btn {
-  color: white;
-  font-weight: bolder;
-  background-color: cornflowerblue;
-  border: 1px solid cornflowerblue;
-  border-radius: 20px;
-  margin-top: 25px;
-  margin-bottom: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#submit-btn:hover {
-  background-color: cornflowerblue;
 }
 
 .error-message {

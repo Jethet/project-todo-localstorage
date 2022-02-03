@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
-        <Route path="/todo" element={<ToDo />} />
+        <Route path="/todo" element={<ToDo card="card" />} />
         <Route path="/todooverview" element={<ToDoOverview />} />
-        <Route path="/todoupdate" element={<ToDoUpdate />} />
+        <Route path="/todoupdate" element={<ToDoUpdate todoList="todoList"/>} />
         <Route path="/tododelete" element={<ToDoDelete />} />
         <Route path="*" element={<Error />} />
       </Routes>
