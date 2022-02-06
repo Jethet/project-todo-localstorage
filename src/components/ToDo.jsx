@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ToDo = () => {
+const ToDo = (props) => {
   const [card, setCard] = useState({ title: "", description: "", tag: "" });
   const navigate = useNavigate();
 
@@ -18,8 +18,10 @@ const ToDo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let key = new Date().toLocaleString("nl");
-
     localStorage.setItem(JSON.stringify(key), JSON.stringify(card));
+    
+    props.todoList.push(card)
+    props.setTodoList(props.todoList)
     setTimeout(resetCard, 2000);
   };
 
