@@ -18,7 +18,7 @@ const ToDoOverview = (props) => {
   };
 
   useEffect(() => {
-    setTodoList(getTodoStorage());
+    props.setTodoList(getTodoStorage());
   }, []);
 
 
