@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import ToDoUpdate from "./ToDoUpdate";
-import ToDoDelete from "./ToDoDelete";
+// import ToDoUpdate from "./ToDoUpdate";
+// import ToDoDelete from "./ToDoDelete";
 
 const ToDoOverview = (props) => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const ToDoOverview = (props) => {
               <p>Description: {card.description}</p>
               <p>Tags: {card.tag}</p>
               <div className="card-buttons">
-                <button className="edit-button" onClick={() => navigate("/todoupdate", {cardid: card.key})}>Update</button>
+                <button className="edit-button" onClick={() => navigate("/todoupdate/:cardid", {cardid: card.key})}>Update</button>
                 <button className="delete-button" onClick={() => navigate("tododelete")}>Delete</button>
               </div>
             </div>

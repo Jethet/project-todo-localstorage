@@ -13,7 +13,6 @@ const ToDoUpdate = (props) => {
         console.log(props.cardid);
       }
     })
-    
   }, [])
 
 
