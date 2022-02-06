@@ -1,41 +1,63 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ToDoUpdate = () => {
+const ToDoUpdate = (props) => {
   const navigate = useNavigate();
 
-  const getOneTodo = (props) => {
-    let cards = props.todoList;
-    let keys = Object.keys(localStorage);
-    let i = keys.length;
-    let cardKey = props.key
-  }
-    const handleSubmit = (e) => {
-      e.preventDefault()
+  const [card, updateCard] = useState(props.card);
 
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-  //   if 
-
-  //   localStorage.setItem(key, 'New Value')
-
-
-  //   if (i = cards[i]) {
-  //     cards.push(JSON.parse(localStorage.getItem(keys[i])));
-  //   }
-  //   return cards;
-  // };
+  const handleChange = (e) => {
+    updateCard({
+      ...card,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
-    <div className="update-page">
-      <button id="submit-btn" type="submit" onClick={handleSubmit}>
-          Submit To Do
-      </button>
+    <div>
+      <div className="todo-card">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={card.title}
+            onChange={handleChange}
+            placeholder="Title"
+          />
+          <textarea
+            type="text"
+            id="description"
+            name="description"
+            value={card.description}
+            onChange={handleChange}
+            placeholder="Description"
+          />
+          <input
+            type="text"
+            id="tag"
+            name="tag"
+            value={card.tag}
+            onChange={handleChange}
+            placeholder="Tag(s)"
+          />
+          <button id="submit-btn" type="submit" onClick={handleSubmit}>
+            Submit To Do
+          </button>
+        </form>
+      </div>
+      <div className="update-page">
         <button className="nav-button" onClick={() => navigate("/todooverview")}>
           To Do Overview
         </button>
         <button className="nav-button" onClick={() => navigate("/")}>
           Back to homepage
         </button>
+      </div>
     </div>
   );
 };
