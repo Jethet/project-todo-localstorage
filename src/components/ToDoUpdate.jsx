@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ToDoUpdate = (props) => {
   const navigate = useNavigate();
+  const [card, updateCard] = useState({});
 
-  const [card, updateCard] = useState(props.card);
+  useEffect(() => {
+    props.todoList.map((card) => {
+      if (card.key === props.cardid) {
+        updateCard(props.card)
+        console.log(props.cardid);
+      }
+    })
+    
+  }, [])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
