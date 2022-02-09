@@ -34,7 +34,7 @@ const ToDoOverview = (props) => {
               <p>Tags: {card.tag}</p>
               <div className="card-buttons">
                 <button className="edit-button" onClick={() => navigate("/todoupdate/:cardid", {cardid: card.key})}>Update</button>
-                <button className="delete-button" onClick={() => navigate("tododelete")}>Delete</button>
+                <button className="delete-button" onClick={() => navigate("/tododelete")}>Delete</button>
               </div>
             </div>
           );

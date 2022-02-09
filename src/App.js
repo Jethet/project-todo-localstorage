@@ -24,15 +24,15 @@ function App() {
         <Route
           exact
           path="/todoupdate/:cardid"            
-          render={(props) => (
-            <ToDoUpdate
-              cardid={props.match.params.cardid}
-              todoList={todoList}
-              setTodoList={setTodoList}
-            />
-          )}
+          // render={(props) => (
+          //   <ToDoUpdate
+          //     cardid={props.match.params.cardid}
+          //     todoList={todoList}
+          //     setTodoList={setTodoList}
+          //   />
+          // )}
         />
-        <Route path="/tododelete" element={<ToDoDelete />} />
+        <Route path="/tododelete" element={<ToDoDelete todoList={todoList} setTodoList={setTodoList} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
