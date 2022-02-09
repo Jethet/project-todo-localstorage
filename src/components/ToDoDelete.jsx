@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 
-const ToDoDelete = () => {
+const ToDoDelete = (props) => {
   const navigate = useNavigate();
   const [card, updateCard] = useState({});
 

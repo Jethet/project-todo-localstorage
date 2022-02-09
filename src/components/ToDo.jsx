@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ToDo = (props) => {
-  const [card, setCard] = useState({ title: "", description: "", tag: "" });
+  const [card, setCard] = useState({
+    id: new Date().toLocaleString("nl"),
+    title: "",
+    description: "",
+    tag: "",
+  });
   const navigate = useNavigate();
 
   // With hooks, the old state is REPLACED by the one that triggers the event.
@@ -17,16 +22,16 @@ const ToDo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let key = new Date().toLocaleString("nl");
-    localStorage.setItem(JSON.stringify(key), JSON.stringify(card));
-    
-    props.todoList.push(card)
-    props.setTodoList(props.todoList)
+    // let key = new Date().toLocaleString("nl");
+    localStorage.setItem(JSON.stringify(card.id), JSON.stringify(card));
+
+    props.todoList.push(card);
+    props.setTodoList(props.todoList);
     setTimeout(resetCard, 2000);
   };
 
   const resetCard = () => {
-    setCard({ title: "", description: "", tag: "" });
+    setCard({ id: "", title: "", description: "", tag: "" });
   };
 
   return (
@@ -59,12 +64,12 @@ const ToDo = (props) => {
         <button id="submit-btn" type="submit" onClick={handleSubmit}>
           Submit To Do
         </button>
-          <button className="nav-button" onClick={() => navigate("/todooverview")}>
-            To Do Overview
-          </button>
-          <button className="nav-button" onClick={() => navigate("/")}>
-            Back to homepage
-          </button>
+        <button className="nav-button" onClick={() => navigate("/todooverview")}>
+          To Do Overview
+        </button>
+        <button className="nav-button" onClick={() => navigate("/")}>
+          Back to homepage
+        </button>
       </form>
     </div>
   );
