@@ -1,21 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const ToDo = (props) => {
-  const [card, setCard] = useState({
-    id: new Date().toLocaleString("nl"),
-    title: "",
-    description: "",
-    tag: "",
-  });
   const navigate = useNavigate();
 
   // With hooks, the old state is REPLACED by the one that triggers the event.
   // To correct that, you’ll need to copy the entire properties from the old state
   // using the spread operator (…) and override the part of it that is the new.
   const handleChange = (e) => {
-    setCard({
-      ...card,
+    props.setCard({
+      ...props.card,
       [e.target.name]: e.target.value,
     });
   };
@@ -23,15 +17,15 @@ const ToDo = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // let key = new Date().toLocaleString("nl");
-    localStorage.setItem(JSON.stringify(card.id), JSON.stringify(card));
+    localStorage.setItem(JSON.stringify(props.card.id), JSON.stringify(props.card));
 
-    props.todoList.push(card);
+    props.todoList.push(props.card);
     props.setTodoList(props.todoList);
     setTimeout(resetCard, 2000);
   };
 
   const resetCard = () => {
-    setCard({ id: "", title: "", description: "", tag: "" });
+    props.setCard({ id: "", title: "", description: "", tag: "" });
   };
 
   return (
@@ -41,7 +35,7 @@ const ToDo = (props) => {
           type="text"
           id="title"
           name="title"
-          value={card.title}
+          value={props.card.title}
           onChange={handleChange}
           placeholder="Title"
         />
@@ -49,7 +43,7 @@ const ToDo = (props) => {
           type="text"
           id="description"
           name="description"
-          value={card.description}
+          value={props.card.description}
           onChange={handleChange}
           placeholder="Description"
         />
@@ -57,7 +51,7 @@ const ToDo = (props) => {
           type="text"
           id="tag"
           name="tag"
-          value={card.tag}
+          value={props.card.tag}
           onChange={handleChange}
           placeholder="Tag(s)"
         />

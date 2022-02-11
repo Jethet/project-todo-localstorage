@@ -10,6 +10,12 @@ import Error from "./components/Error";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [card, setCard] = useState({
+    id: new Date().toLocaleString("nl"),
+    title: "",
+    description: "",
+    tag: "",
+  });
 
   return (
     <BrowserRouter>
@@ -18,7 +24,7 @@ function App() {
         <Route path="/home" element={<Homepage />} />
         <Route
           path="/todo"
-          element={<ToDo todoList={todoList} setTodoList={setTodoList} />}
+          element={<ToDo todoList={todoList} setTodoList={setTodoList} card={card} setCard={setCard} />}
         />
         <Route path="/todooverview" element={<ToDoOverview todoList={todoList} setTodoList={setTodoList} />} />
         <Route
