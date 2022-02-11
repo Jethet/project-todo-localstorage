@@ -6,15 +6,15 @@ const ToDoDelete = (props) => {
 
   // The card has to be loaded before it can be deleted
   useEffect(() => {
-    props.todoList.map((card) => {
-      if (card.key === props.cardid) {
-        props.updateCard(props.card);
-        console.log(props.cardid);
+    props.todoList.map((item) => {
+      if (item.id === props.card.id) {
+        props.setCard(props.card);
+        console.log(props.card);
       }
     });
   }, []);
 
-  const handleDelete = () => {
+  const deleteCard = () => {
     let updatedTodos = [...props.todoList].filter((item) => {
       if (props.card.id !== item.id) {
         props.setTodoList(updatedTodos);
@@ -44,7 +44,8 @@ const ToDoDelete = (props) => {
             name="tag"
             value={props.card.tag}
           />
-          <button id="submit-btn" type="submit" onClick={() => handleDelete(id)}>
+          <p>Are you sure you want to delete this to do?</p>
+          <button id="submit-btn" type="submit" onClick={() => deleteCard()}>
             Delete To Do
           </button>
         </form>
