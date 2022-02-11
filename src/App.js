@@ -32,7 +32,7 @@ function App() {
           //   />
           // )}
         />
-        <Route path="/tododelete" element={<ToDoDelete todoList={todoList} setTodoList={setTodoList} />} />
+        <Route path="/tododelete" element={<ToDoDelete todoList={todoList} setTodoList={setTodoList} card={card} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
