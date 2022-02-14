@@ -8,9 +8,9 @@ const ToDoUpdate = (props) => {
   // The card has to be loaded before it can be updated
   useEffect(() => {
     props.todoList.map((card) => {
-      if (card.key === props.cardid) {
+      if (card.key === props.card.id) {
         updateCard(props.card)
-        console.log(props.cardid);
+        console.log(props.card.id);
       }
     })
   }, [])
